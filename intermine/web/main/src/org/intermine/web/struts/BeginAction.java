@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -226,7 +227,7 @@ public class BeginAction extends InterMineAction
      * @return response HTTP Servlet Response
      */
     private HttpServletResponse setUserVisitedCookie(HttpServletResponse response) {
-        Cookie cookie = new Cookie("visited", "at some point...");
+        Cookie cookie = new Cookie("visited", URLEncoder.encode("at some point...", "UTF-8"));
         // see you in a year
         cookie.setMaxAge(365 * 24 * 60 * 60);
         response.addCookie(cookie);
